@@ -1,0 +1,4 @@
+# last target sent from the user
+---
+float64 last_target_x
+float64 last_target_y

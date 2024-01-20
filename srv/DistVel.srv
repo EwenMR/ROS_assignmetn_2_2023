@@ -1,0 +1,4 @@
+# distance from target and average velocity
+---
+float64 dist
+float64 mu

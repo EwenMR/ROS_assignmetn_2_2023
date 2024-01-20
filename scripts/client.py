@@ -76,7 +76,7 @@ class ActionClient:
 
 
 def main():
-    rospy.init_node('action_client')
+    rospy.init_node('action_client', anonymous = True)
     client = ActionClient()
 
     goal_thread = threading.Thread(target=client.listen_goals)

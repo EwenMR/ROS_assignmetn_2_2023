@@ -5,27 +5,27 @@ import rospy
 from assignment_2_2023.srv import LastTarget, LastTargetResponse
 from geometry_msgs.msg import Point
 
+#  Class definition
 class LastTargetService:
     def __init__(self):
+        # Initialization of the variables used to store last target coordinates
         self.last_target_x = 0.0
         self.last_target_y = 0.0
 
+        rospy.Subscriber('/goal', Point, self.last_target_callback)
         rospy.Service('/get_last_target', LastTarget, self.handle_last_target_request)
-        rospy.Subscriber('/target', Point, self.handle_last_target_request)
+        
 
     def handle_last_target_request(self, req):
+        # Service server callback to respond with last target coordinates
         response = LastTargetResponse()
-        if self.last_target_x is not None and self.last_target_y is not None:
-            response.last_target_x = self.last_target_x
-            response.last_target_y = self.last_target_y
-        else:
-            rospy.logwarn("No target")
-            response.x = 0.0
-            response.y = 0.0
+        response.last_target_x = self.last_target_x
+        response.last_target_y = self.last_target_y
         return response
         
 
     def last_target_callback(self, data):
+        # Callback for receiving current goal/target coordinates
         self.last_target_x = data.x
         self.last_target_y = data.y
 

@@ -61,7 +61,11 @@ Upon launching the assignment2 launch file the user should be prompted to enter 
 x,y
 ```
 
-or to enter 's' to stop the robot and cancel the goal currently set.
+or to enter:
+```bash
+s
+```
+to stop the robot and cancel the goal currently set.
 
 ## Retrieving the last target set by the user
 This can be done by calling the /get_last_target service:

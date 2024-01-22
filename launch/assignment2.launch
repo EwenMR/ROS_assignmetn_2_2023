@@ -1,13 +1,13 @@
 <!-- launch file for the new nodes created, with the addition of the argument to be able to change the window_size of node (c)
-to do so, while launching: "roslaunch assignment_2_2023 assignment2.launch node_size:=X" replace X with desired size-->
-<?xml version="1.0"?>
+to do so, while launching: "roslaunch assignment_2_2023 assignment2.launch node_size:=5" -->
+<!-- <?xml version="1.0"?> -->
 <launch>
-    <arg name="node_size" default="10" />
+    <arg name="window_size" default="10" />
     
     <node pkg="assignment_2_2023" type="client.py" name="action_client" output="screen" />
     <node pkg="assignment_2_2023" type="last_target.py" name="last_target_service" />
     <node pkg="assignment_2_2023" type="dist_vel.py" name="dist_mu_service" >
-        <rosparam param="node_size"> $(arg node_size)</rosparam>
+        <rosparam param="window_size"> $(arg window_size)</rosparam>
     
         </node>
     

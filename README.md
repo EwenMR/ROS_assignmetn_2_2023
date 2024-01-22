@@ -78,4 +78,35 @@ This can be done calling another service /get_dist_mu:
 ```bash
 rosservice call /get_dist_mu
 ```
-.
+
+# Pseudocode for the action client
+```
+Define ActionClient class:
+    Initialize action client for 'reaching_goal' server
+    Initialize publishers to /pos and /goal and subscribe to 'odom' topic
+
+    Define odom_callback function:
+        Extract position and velocity from odometry
+        Create and publish Posvel message
+
+    Define send_goal function:
+        Create goal with target coordinates and send to action server
+        Publish current goal/target coordinates
+        Log goal information
+
+    Define cancel_goal function:
+        Cancel all goals
+        Log cancellation information
+
+    Define listen_goals function:
+        Continuously prompt user for input
+        If 's' is entered, cancel goals
+        If valid coordinates are entered, send goal
+        Handle invalid input gracefully
+
+Define main function:
+    Initialize ROS node and ActionClient
+    Start a separate thread for listening to user input and sending goals
+    Keep the node running
+    Wait for the goal thread to finish before exiting
+```

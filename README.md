@@ -57,7 +57,10 @@ chmod +x *
 # Functionalities
 ## How to set or cancel a new target
 Upon launching the assignment2 launch file the user should be prompted to enter two coordinates:
+```bash
 x,y
+```
+
 or to enter 's' to stop the robot and cancel the goal currently set.
 
 ## Retrieving the last target set by the user

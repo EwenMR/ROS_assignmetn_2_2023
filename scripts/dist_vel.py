@@ -7,6 +7,8 @@ from assignment_2_2023.msg import Posvel  # Update with your package and message
 from geometry_msgs.msg import Point
 import math
 
+# Class definition dist being the distance from the robot to the goal and mu
+# being the average speed
 class RobotDistMU:
     def __init__(self):
 
@@ -20,7 +22,7 @@ class RobotDistMU:
         self.time_history = []
 
         # Set up a subscriber to receive robot's position and velocity
-        rospy.Subscriber('/pos_vel', Posvel, self.robot_pos_vel_callback)
+        rospy.Subscriber('/pos', Posvel, self.robot_pos_vel_callback)
 
         # Set up a service server to respond to requests for distance and mu
         rospy.Service('/get_distance_mu', DistVel, self.handle_get_distance_mu)
@@ -68,3 +70,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

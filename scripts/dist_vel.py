@@ -21,6 +21,8 @@ class RobotDistMU:
         self.vel_history_y = []
         self.time_history = []
 
+        self.window_size = rospy.get_param('window_size', 10)
+
         # Set up a subscriber to receive robot's position and velocity
         rospy.Subscriber('/pos', Posvel, self.robot_pos_vel_callback)
 

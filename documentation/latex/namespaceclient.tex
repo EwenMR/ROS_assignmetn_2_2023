@@ -1,0 +1,47 @@
+\hypertarget{namespaceclient}{}\doxysection{client Namespace Reference}
+\label{namespaceclient}\index{client@{client}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classclient_1_1_action_client}{Action\+Client}}
+\begin{DoxyCompactList}\small\item\em Action client class definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceclient_a18d2f0bd3df369370bdb40b86fe2892b}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}\package ActionClient
+\brief This module defines the ActionClient class responsible for interfacing with a ROS action server to send goals, publish position and velocity updates, and manage user inputs for dynamic interaction with a simulated robot environment.
+
+\author
+Ewen Gay-Semenkoff ewengay2002@hotmail.com
+
+\subscribers
+- /odom
+- /reaching_goal/feedback
+
+\publishers
+- /pos
+- /goal
+
+\services
+- /gazebo/reset_world
+
+\actions
+- /reaching_goal
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceclient_a18d2f0bd3df369370bdb40b86fe2892b}\label{namespaceclient_a18d2f0bd3df369370bdb40b86fe2892b}} 
+\index{client@{client}!main@{main}}
+\index{main@{main}!client@{client}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def client.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Main function to initialize the ROS node and start the action client.
+\end{DoxyVerb}
+ 

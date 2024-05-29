@@ -1,0 +1,69 @@
+\hypertarget{classlast__target_1_1_last_target_service}{}\doxysection{last\+\_\+target.\+Last\+Target\+Service Class Reference}
+\label{classlast__target_1_1_last_target_service}\index{last\_target.LastTargetService@{last\_target.LastTargetService}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classlast__target_1_1_last_target_service_a71e2428f93dff46eab18239fd93761fa}\label{classlast__target_1_1_last_target_service_a71e2428f93dff46eab18239fd93761fa}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \mbox{\hyperlink{classlast__target_1_1_last_target_service_a81ca81a0d0bcfb7f25b71439ceb3b5a7}{handle\+\_\+last\+\_\+target\+\_\+request}} (self, req)
+\item 
+\mbox{\Hypertarget{classlast__target_1_1_last_target_service_a6d810a24b35c66cbb679f37a47582398}\label{classlast__target_1_1_last_target_service_a6d810a24b35c66cbb679f37a47582398}} 
+def {\bfseries last\+\_\+target\+\_\+callback} (self, data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlast__target_1_1_last_target_service_a415c9d5888ad7768ee3f88d9b2c8fbdb}{last\+\_\+target\+\_\+x}}
+\item 
+\mbox{\Hypertarget{classlast__target_1_1_last_target_service_aa40e82f22164de097a350b064508ca75}\label{classlast__target_1_1_last_target_service_aa40e82f22164de097a350b064508ca75}} 
+{\bfseries last\+\_\+target\+\_\+y}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}\brief Initializes the LastTargetService object, setting up the subscriber and service.
+
+\attributes
+- last_target_x (float): The x-coordinate of the last known target.
+- last_target_y (float): The y-coordinate of the last known target.
+
+\methods
+- __init__: Initializes the LastTargetService object, setting up the subscriber and service.
+- handle_last_target_request: Responds to service requests with the last known target coordinates.
+- last_target_callback: Callback for receiving current goal coordinates and updating the internal state.\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlast__target_1_1_last_target_service_a81ca81a0d0bcfb7f25b71439ceb3b5a7}\label{classlast__target_1_1_last_target_service_a81ca81a0d0bcfb7f25b71439ceb3b5a7}} 
+\index{last\_target.LastTargetService@{last\_target.LastTargetService}!handle\_last\_target\_request@{handle\_last\_target\_request}}
+\index{handle\_last\_target\_request@{handle\_last\_target\_request}!last\_target.LastTargetService@{last\_target.LastTargetService}}
+\doxysubsubsection{\texorpdfstring{handle\_last\_target\_request()}{handle\_last\_target\_request()}}
+{\footnotesize\ttfamily def last\+\_\+target.\+Last\+Target\+Service.\+handle\+\_\+last\+\_\+target\+\_\+request (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{req }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    \brief Callback for receiving current goal coordinates and updating the internal state.
+    
+    \param data The goal position message containing the coordinates (type: Point).\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlast__target_1_1_last_target_service_a415c9d5888ad7768ee3f88d9b2c8fbdb}\label{classlast__target_1_1_last_target_service_a415c9d5888ad7768ee3f88d9b2c8fbdb}} 
+\index{last\_target.LastTargetService@{last\_target.LastTargetService}!last\_target\_x@{last\_target\_x}}
+\index{last\_target\_x@{last\_target\_x}!last\_target.LastTargetService@{last\_target.LastTargetService}}
+\doxysubsubsection{\texorpdfstring{last\_target\_x}{last\_target\_x}}
+{\footnotesize\ttfamily last\+\_\+target.\+Last\+Target\+Service.\+last\+\_\+target\+\_\+x\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}\brief Responds to service requests with the last known target coordinates.
+
+\param req The service request (empty for LastTarget service).
+\return LastTargetResponse The service response containing the last target coordinates.
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}\brief Initializes the ROS node and the LastTargetService.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+scripts/last\+\_\+target.\+py\end{DoxyCompactItemize}

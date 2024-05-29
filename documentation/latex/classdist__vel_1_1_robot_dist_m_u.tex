@@ -1,0 +1,124 @@
+\hypertarget{classdist__vel_1_1_robot_dist_m_u}{}\doxysection{dist\+\_\+vel.\+Robot\+Dist\+MU Class Reference}
+\label{classdist__vel_1_1_robot_dist_m_u}\index{dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a1739efd6e7ca07e509e4c7167326cbf1}\label{classdist__vel_1_1_robot_dist_m_u_a1739efd6e7ca07e509e4c7167326cbf1}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_ae96498f37c15f08e71ed97d66da5c4eb}\label{classdist__vel_1_1_robot_dist_m_u_ae96498f37c15f08e71ed97d66da5c4eb}} 
+def {\bfseries robot\+\_\+pos\+\_\+vel\+\_\+callback} (self, data)
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a58c5229ca9dafc790940530f997da380}\label{classdist__vel_1_1_robot_dist_m_u_a58c5229ca9dafc790940530f997da380}} 
+def {\bfseries calculate\+\_\+av\+\_\+speed} (self)
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a519fd578fe95df744e41d3e5812b4166}\label{classdist__vel_1_1_robot_dist_m_u_a519fd578fe95df744e41d3e5812b4166}} 
+def {\bfseries calculate\+\_\+dist\+\_\+vel} (self)
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a59413a400ab2d5cad23d573d8dd8eeee}\label{classdist__vel_1_1_robot_dist_m_u_a59413a400ab2d5cad23d573d8dd8eeee}} 
+def {\bfseries handle\+\_\+get\+\_\+distance\+\_\+mu} (self, req)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdist__vel_1_1_robot_dist_m_u_a12509d7013ac8e6611a941a8a4b0b2c5}{robot\+\_\+pos\+\_\+vel}}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_ad9466a311ac902ae52747cb2a327b6b0}\label{classdist__vel_1_1_robot_dist_m_u_ad9466a311ac902ae52747cb2a327b6b0}} 
+{\bfseries target\+\_\+position}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a564c27aee4a086d87d872f773ee4a3a6}\label{classdist__vel_1_1_robot_dist_m_u_a564c27aee4a086d87d872f773ee4a3a6}} 
+{\bfseries dist}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_abd22b435472d50a73c98a0d087ceb04d}\label{classdist__vel_1_1_robot_dist_m_u_abd22b435472d50a73c98a0d087ceb04d}} 
+{\bfseries mu}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a4509c95f617dca367d4732f290bb3dc6}\label{classdist__vel_1_1_robot_dist_m_u_a4509c95f617dca367d4732f290bb3dc6}} 
+{\bfseries vel\+\_\+history\+\_\+x}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a643080c9aca5d594b544a42cfbd26a94}\label{classdist__vel_1_1_robot_dist_m_u_a643080c9aca5d594b544a42cfbd26a94}} 
+{\bfseries vel\+\_\+history\+\_\+y}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a885848a132a50712d253e964993c855d}\label{classdist__vel_1_1_robot_dist_m_u_a885848a132a50712d253e964993c855d}} 
+{\bfseries time\+\_\+history}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a260063ea1e137152e74b9e03f5718237}\label{classdist__vel_1_1_robot_dist_m_u_a260063ea1e137152e74b9e03f5718237}} 
+{\bfseries window\+\_\+size}
+\item 
+\mbox{\hyperlink{classdist__vel_1_1_robot_dist_m_u_acdf0c4ee129e11b15a029e941415482f}{total\+\_\+time}} = self.\+time\+\_\+history\mbox{[}-\/1\mbox{]} -\/ self.\+time\+\_\+history\mbox{[}0\mbox{]}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_ac4068caae9f134c187eff12df9b4ef1c}\label{classdist__vel_1_1_robot_dist_m_u_ac4068caae9f134c187eff12df9b4ef1c}} 
+{\bfseries av\+\_\+speed\+\_\+x} = sum(self.\+vel\+\_\+history\+\_\+x) / len(self.\+vel\+\_\+history\+\_\+x)
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_afb129f3c806483d956a03556ad4f3fde}\label{classdist__vel_1_1_robot_dist_m_u_afb129f3c806483d956a03556ad4f3fde}} 
+{\bfseries av\+\_\+speed\+\_\+y} = sum(self.\+vel\+\_\+history\+\_\+y) / len(self.\+vel\+\_\+history\+\_\+y)
+\item 
+\mbox{\hyperlink{classdist__vel_1_1_robot_dist_m_u_a10b8ee8cd3dbcfbdae50e0eafaf75839}{dx}} = self.\+target\+\_\+position.\+x -\/ self.\+robot\+\_\+pos\+\_\+vel.\+x
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a75e361693f45fc4dc401371b0d2630cc}\label{classdist__vel_1_1_robot_dist_m_u_a75e361693f45fc4dc401371b0d2630cc}} 
+{\bfseries dy} = self.\+target\+\_\+position.\+y -\/ self.\+robot\+\_\+pos\+\_\+vel.\+y
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a2abe9bd9414bf5ec8718102844413764}\label{classdist__vel_1_1_robot_dist_m_u_a2abe9bd9414bf5ec8718102844413764}} 
+{\bfseries average\+\_\+speed\+\_\+x}
+\item 
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_ae5b97f9317fcb86d5648ea90f7e4b3bc}\label{classdist__vel_1_1_robot_dist_m_u_ae5b97f9317fcb86d5648ea90f7e4b3bc}} 
+{\bfseries average\+\_\+speed\+\_\+y}
+\item 
+\mbox{\hyperlink{classdist__vel_1_1_robot_dist_m_u_a6f1b59f7066a2a404203197cd947c21e}{response}} = Dist\+Vel\+Response()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}\brief Initializes the RobotDistMU object, setting up the subscriber and service.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a10b8ee8cd3dbcfbdae50e0eafaf75839}\label{classdist__vel_1_1_robot_dist_m_u_a10b8ee8cd3dbcfbdae50e0eafaf75839}} 
+\index{dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}!dx@{dx}}
+\index{dx@{dx}!dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}}
+\doxysubsubsection{\texorpdfstring{dx}{dx}}
+{\footnotesize\ttfamily dist\+\_\+vel.\+Robot\+Dist\+M\+U.\+dx = self.\+target\+\_\+position.\+x -\/ self.\+robot\+\_\+pos\+\_\+vel.\+x\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}\brief Responds to the service requests with the current distance and average speed (mu).
+
+\param req: the service request (empty for DistVel service).
+
+\return DistVelResponse: the service response containing distance and mu.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a6f1b59f7066a2a404203197cd947c21e}\label{classdist__vel_1_1_robot_dist_m_u_a6f1b59f7066a2a404203197cd947c21e}} 
+\index{dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}!response@{response}}
+\index{response@{response}!dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}}
+\doxysubsubsection{\texorpdfstring{response}{response}}
+{\footnotesize\ttfamily dist\+\_\+vel.\+Robot\+Dist\+M\+U.\+response = Dist\+Vel\+Response()\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}\brief Initializes the ROS node and the RobotDistMU service.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_a12509d7013ac8e6611a941a8a4b0b2c5}\label{classdist__vel_1_1_robot_dist_m_u_a12509d7013ac8e6611a941a8a4b0b2c5}} 
+\index{dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}!robot\_pos\_vel@{robot\_pos\_vel}}
+\index{robot\_pos\_vel@{robot\_pos\_vel}!dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}}
+\doxysubsubsection{\texorpdfstring{robot\_pos\_vel}{robot\_pos\_vel}}
+{\footnotesize\ttfamily dist\+\_\+vel.\+Robot\+Dist\+M\+U.\+robot\+\_\+pos\+\_\+vel\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}\brief Callback function updates the position and velocity from /pos topic and recalculates distance and velocity.
+
+\param data (Posvel): The position and velocity message of the robot.
+\end{DoxyVerb}
+
+
+\begin{DoxyVerb}\brief Computes the average speed of the robot based on the velocity history.
+
+\return tuple: Average speed in x and y directions
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classdist__vel_1_1_robot_dist_m_u_acdf0c4ee129e11b15a029e941415482f}\label{classdist__vel_1_1_robot_dist_m_u_acdf0c4ee129e11b15a029e941415482f}} 
+\index{dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}!total\_time@{total\_time}}
+\index{total\_time@{total\_time}!dist\_vel.RobotDistMU@{dist\_vel.RobotDistMU}}
+\doxysubsubsection{\texorpdfstring{total\_time}{total\_time}}
+{\footnotesize\ttfamily dist\+\_\+vel.\+Robot\+Dist\+M\+U.\+total\+\_\+time = self.\+time\+\_\+history\mbox{[}-\/1\mbox{]} -\/ self.\+time\+\_\+history\mbox{[}0\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}\brief Calculates the distance from the robot to the target position and updates the variable 'mu'.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+scripts/dist\+\_\+vel.\+py\end{DoxyCompactItemize}

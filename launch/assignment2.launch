@@ -2,6 +2,7 @@
 to do so, while launching: "roslaunch assignment_2_2023 assignment2.launch node_size:=5" -->
 <!-- <?xml version="1.0"?> -->
 <launch>
+    <include file="$(find assignment_2_2023)/launch/assignment1.launch" />
     <arg name="window_size" default="10" />
     
     <node pkg="assignment_2_2023" type="client.py" name="action_client" output="screen" />

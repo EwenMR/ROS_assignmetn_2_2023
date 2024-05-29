@@ -1,0 +1,143 @@
+\hypertarget{classclient_1_1_action_client}{}\doxysection{client.\+Action\+Client Class Reference}
+\label{classclient_1_1_action_client}\index{client.ActionClient@{client.ActionClient}}
+
+
+Action client class definition.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_a8d22450739b42ad49388e29a67fe00ee}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_add9bdbc935bfdc83d14a46a43dd296b9}{feedback\+\_\+callback}} (self, feedback)
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_af3416b6b2f8d9e52cb2450f7c88cf8c9}{odom\+\_\+callback}} (self, data)
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_aa003190fec53f67f64e2687f7e967916}{send\+\_\+goal}} (self, x, y)
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_ad432afe9757dc529930f83d50a0bf613}{cancel\+\_\+goal}} (self)
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_a122b302b16edae601a633c4bc8f844be}{reset\+\_\+world}} (self)
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_a2c451ba12f35b951575f4f2dc88ddcd3}{obst\+\_\+dist}} (self)
+\item 
+def \mbox{\hyperlink{classclient_1_1_action_client_a4228fd51deb1cc3698e54f169a7ce081}{listen\+\_\+goals}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classclient_1_1_action_client_ab66d16d5f6ff987b575195bf256489ba}\label{classclient_1_1_action_client_ab66d16d5f6ff987b575195bf256489ba}} 
+{\bfseries client}
+\item 
+\mbox{\Hypertarget{classclient_1_1_action_client_a0d0149013f91d9f6bbbd5235ba658331}\label{classclient_1_1_action_client_a0d0149013f91d9f6bbbd5235ba658331}} 
+{\bfseries pos\+\_\+vel\+\_\+pub}
+\item 
+\mbox{\Hypertarget{classclient_1_1_action_client_ad446a90fc82aaf79b3a9ad3397e45822}\label{classclient_1_1_action_client_ad446a90fc82aaf79b3a9ad3397e45822}} 
+{\bfseries current\+\_\+goal\+\_\+pub}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Action client class definition. 
+
+\begin{DoxyVerb}\class ActionClient
+\brief A class to interact with a ROS action server, publish and subscribe to ROS topics, and handle dynamic user inputs.
+
+\attributes
+- client (actionlib.SimpleActionClient): The action client to send goals to the 'reaching_goal' action server.
+- pos_vel_pub (rospy.Publisher): Publisher for robot's position and velocity.
+- current_goal_pub (rospy.Publisher): Publisher for the current goal/target position of the robot.
+
+\methods
+- feedback_callback: Logs feedback from the action server.
+- odom_callback: Processes odometry data to update and publish the robot's current position and velocity.
+- send_goal: Sends a goal to the action server.
+- cancel_goal: Cancels all pending goals at the action server.
+- reset_world: Calls a service to reset the simulation environment.
+- obst_dist: Subscribes to a topic to get distance measurements (implementation needed).
+- listen_goals: Listens to user input to dynamically manage goals and actions.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classclient_1_1_action_client_a8d22450739b42ad49388e29a67fe00ee}\label{classclient_1_1_action_client_a8d22450739b42ad49388e29a67fe00ee}} 
+\index{client.ActionClient@{client.ActionClient}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Initializes the ActionClient object, setting up the action client, publishers, and subscribers.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classclient_1_1_action_client_ad432afe9757dc529930f83d50a0bf613}\label{classclient_1_1_action_client_ad432afe9757dc529930f83d50a0bf613}} 
+\index{client.ActionClient@{client.ActionClient}!cancel\_goal@{cancel\_goal}}
+\index{cancel\_goal@{cancel\_goal}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{cancel\_goal()}{cancel\_goal()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+cancel\+\_\+goal (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Cancels all goals currently queued or active in the action server.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classclient_1_1_action_client_add9bdbc935bfdc83d14a46a43dd296b9}\label{classclient_1_1_action_client_add9bdbc935bfdc83d14a46a43dd296b9}} 
+\index{client.ActionClient@{client.ActionClient}!feedback\_callback@{feedback\_callback}}
+\index{feedback\_callback@{feedback\_callback}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{feedback\_callback()}{feedback\_callback()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+feedback\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{feedback }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Processes feedback from the action server.
+
+\param feedback (String): The feedback message from the action server.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classclient_1_1_action_client_a4228fd51deb1cc3698e54f169a7ce081}\label{classclient_1_1_action_client_a4228fd51deb1cc3698e54f169a7ce081}} 
+\index{client.ActionClient@{client.ActionClient}!listen\_goals@{listen\_goals}}
+\index{listen\_goals@{listen\_goals}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{listen\_goals()}{listen\_goals()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+listen\+\_\+goals (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Continuously processes user inputs to dynamically control the robot through action server goals, resets, or obstacle checks.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classclient_1_1_action_client_a2c451ba12f35b951575f4f2dc88ddcd3}\label{classclient_1_1_action_client_a2c451ba12f35b951575f4f2dc88ddcd3}} 
+\index{client.ActionClient@{client.ActionClient}!obst\_dist@{obst\_dist}}
+\index{obst\_dist@{obst\_dist}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{obst\_dist()}{obst\_dist()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+obst\+\_\+dist (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Subscribes to the /scan topic to get laser scan data and compute obstacle distance.
+Needs implementation to process the data.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classclient_1_1_action_client_af3416b6b2f8d9e52cb2450f7c88cf8c9}\label{classclient_1_1_action_client_af3416b6b2f8d9e52cb2450f7c88cf8c9}} 
+\index{client.ActionClient@{client.ActionClient}!odom\_callback@{odom\_callback}}
+\index{odom\_callback@{odom\_callback}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{odom\_callback()}{odom\_callback()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+odom\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Callback function to process odometry data, update the robot's position and velocity, and publish these updates.
+
+\param data (Odometry): The odometry data containing position and velocity information.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classclient_1_1_action_client_a122b302b16edae601a633c4bc8f844be}\label{classclient_1_1_action_client_a122b302b16edae601a633c4bc8f844be}} 
+\index{client.ActionClient@{client.ActionClient}!reset\_world@{reset\_world}}
+\index{reset\_world@{reset\_world}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{reset\_world()}{reset\_world()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+reset\+\_\+world (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Calls the service to reset the simulation world in Gazebo.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classclient_1_1_action_client_aa003190fec53f67f64e2687f7e967916}\label{classclient_1_1_action_client_aa003190fec53f67f64e2687f7e967916}} 
+\index{client.ActionClient@{client.ActionClient}!send\_goal@{send\_goal}}
+\index{send\_goal@{send\_goal}!client.ActionClient@{client.ActionClient}}
+\doxysubsubsection{\texorpdfstring{send\_goal()}{send\_goal()}}
+{\footnotesize\ttfamily def client.\+Action\+Client.\+send\+\_\+goal (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}\brief Creates and sends a goal to the action server and publishes the goal coordinates.
+
+\param x (float): The x-coordinate of the target goal.
+\param y (float): The y-coordinate of the target goal.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+scripts/client.\+py\end{DoxyCompactItemize}

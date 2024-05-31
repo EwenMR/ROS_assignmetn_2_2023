@@ -1,15 +1,10 @@
-# Research Track 1 second assignment using ROS (2024)
-This repository contains all the necessary code to download and run the ros simulation.
+# Research Track 2 second assignment using ROS and Jupyter Notebook (2024)
+This repository contains all the necessary code to download and run the ros simulation with the use of the User Interface.
 
 # Assignment
-- (a) A node that implements an action client, allowing the user to set a target (x, y) or to cancel it. Try to use the
-feedback/status of the action server to know when the target has been reached. The node also publishesthe
-robot position and velocity as a custom message (x,y, vel_x, vel_z), by relying on the values published on the
-topic /odom;
-- (b) A service node that, when called, returnsthe coordinates of the last target sent by the user;
-- (c) Anotherservice node thatsubscribes to the robot’s position and velocity (using the custom message) and
-implements a server to retrieve the distance of the robot from the target and the robot’s average speed.
-- Create a launch file to start the whole simulation. Use a parameterto select the size of the averaging window of node (c)
+- (a) Create an interface using Jupyter Notebook to assign (or cancel) goals to the robot.
+- (b) A plot with the robot's current position and current targets' positions in the environment.
+- (c) A plot for the number of reached versus not-reached targets.
 
 # Installing and Running the code
 ## Installing

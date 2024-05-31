@@ -28,10 +28,17 @@ You then have to source the ros workspace:
 source devel/setup.bash
 ```
 
-To start the ROS master or core:
+Then we need to enter the correct branch
 ```bash
-roscore
+cd assignment_2_2023
+git checkout RT2_asssignment2
 ```
+
+After this we can set up the jupyter notebook:
+```bash
+jupyter notebook --allow-root --ip 0.0.0.0
+```
+Once the connection established, find and open the User_Interface file.
 
 To launch Rviz and Gazebo:
 ```bash
@@ -50,17 +57,12 @@ chmod +x *
 ```
 
 # Functionalities
-## How to set or cancel a new target
-Upon launching the assignment2 launch file the user should be prompted to enter two coordinates:
-```bash
-x,y
-```
+Once the ROS environment launched you are to run the User Interface.
 
-or to enter:
-```bash
-s
-```
-to stop the robot and cancel the goal currently set.
+## How to set or cancel a new target
+Use the two buttons for x and y, once the coordinates entered simply press 'Set Goal'.
+
+To stop the robot and cancel the goal currently set simply press the 'Cancel Goal' button.
 
 ## Retrieving the last target set by the user
 This can be done by calling the /get_last_target service:
@@ -74,34 +76,4 @@ This can be done calling another service /get_dist_mu:
 rosservice call /get_dist_mu
 ```
 
-# Pseudocode for the action client
-```
-Define ActionClient class:
-    Initialize action client for 'reaching_goal' server
-    Initialize publishers to /pos and /goal and subscribe to 'odom' topic
 
-    Define odom_callback function:
-        Extract position and velocity from odometry
-        Create and publish Posvel message
-
-    Define send_goal function:
-        Create goal with target coordinates and send to action server
-        Publish current goal/target coordinates
-        Log goal information
-
-    Define cancel_goal function:
-        Cancel all goals
-        Log cancellation information
-
-    Define listen_goals function:
-        Continuously prompt user for input
-        If 's' is entered, cancel goals
-        If valid coordinates are entered, send goal
-        Handle invalid input gracefully
-
-Define main function:
-    Initialize ROS node and ActionClient
-    Start a separate thread for listening to user input and sending goals
-    Keep the node running
-    Wait for the goal thread to finish before exiting
-```

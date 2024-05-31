@@ -11,6 +11,7 @@ from assignment_2_2023.msg import Posvel
 from assignment_2_2023.msg import PlanningAction, PlanningGoal
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Point
+from std_msgs.msg import Empty, Bool
 
 # action client class definition
 class ActionClient:
@@ -22,10 +23,16 @@ class ActionClient:
 
         # Publishers for the position and goal/target information
         self.pos_vel_pub = rospy.Publisher('/pos', assignment_2_2023.msg.Posvel, queue_size = 10)
-        self.current_goal_pub = rospy.Publisher('/goal', Point, queue_size = 10)
+        self.current_goal_pub = rospy.Publisher('/goal_from_ac', Point, queue_size = 10)
+        
+        self.goal_reached_pub = rospy.Publisher('/goal_reached', Bool, queue_size=10)
 
         # Subscribe to the 'odo'm to receive odometry info
         rospy.Subscriber('/odom', Odometry, self.odom_callback)
+        # rospy.Subscriber('/goal_from_ac', Point, self.goal_callback)
+        rospy.Subscriber('/goal_jupy', Point, self.goal_callback)
+
+        rospy.Subscriber('/cancel_goal', Empty, self.cancel_callback)
 
     def odom_callback(self, data):
         # Extract position and velocity from odometry
@@ -43,13 +50,13 @@ class ActionClient:
         self.pos_vel_pub.publish(pos_vel_msg)
 
     def send_goal(self, x, y):
-        #  Create a goal with target coordinates and send to the action server
+        # Create a goal with target coordinates and send to the action server
         goal = PlanningGoal()
         goal.target_pose.pose.position.x = x
         goal.target_pose.pose.position.y = y
-        self.client.send_goal(goal)
+        self.client.send_goal(goal, active_cb=self.callback_active, feedback_cb=self.callback_feedback, done_cb=self.callback_done)
 
-        #  Publish current goal/target coordinates
+        # Publish current goal/target coordinates
         self.current_goal_pub.publish(Point(x, y, 0))
         rospy.loginfo("Goal sent: x = %f, y = %f" % (x, y))
 
@@ -58,20 +65,32 @@ class ActionClient:
         self.client.cancel_all_goals()
         rospy.loginfo("Goals cancelled")
 
-    def listen_goals(self):
-        # Continuously prompt user for input
-        while not rospy.is_shutdown():
-            user_input = input("Enter a goal as 'x,y', or type 's' to stop:")
-            print(user_input)
+    def goal_callback(self, point):
+        # decompose the point into xx and y
+        #call send goal
+        self.send_goal(point.x, point.y)
 
-            if user_input == 's':
-                self.cancel_goal()
-            else:
-                try:
-                    x, y = map(float, user_input.split(','))
-                    self.send_goal(x, y)
-                except ValueError:
-                    rospy.loginfo("Invalid input. Please enter the goal as 'x,y' as numbers or type 'stop' to cancel") 
+
+
+    def callback_active(self):
+        rospy.loginfo("Action server is processing the goal")
+
+    def callback_done(self, state, result):
+        rospy.loginfo("Action server is done. State: %s, result: %s" % (str(state), str(result)))
+        # Publish an empty message to the /goal_reached topic
+        goal_reached = state == actionlib.GoalStatus.SUCCEEDED
+        self.goal_reached_pub.publish(goal_reached)
+
+    def callback_feedback(self, feedback):
+        rospy.loginfo("Feedback: %s" % str(feedback))
+
+    
+    def cancel_callback(self, msg):
+        rospy.loginfo("Received cancel goal message")
+        self.cancel_goal()
+
+
+
 
     
 
@@ -80,12 +99,12 @@ def main():
     client = ActionClient()
 
     # Start a separate thread for listening to user input and sending goals
-    goal_thread = threading.Thread(target=client.listen_goals)
-    goal_thread.start()
+    # goal_thread = threading.Thread(target=client.listen_goals)
+    # goal_thread.start()
 
     rospy.spin()
     # Wait for the goal thread to finish before exiting
-    goal_thread.join()
+    # goal_thread.join()
 
 if __name__ == '__main__':
     main()
